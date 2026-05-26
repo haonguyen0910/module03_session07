@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/candidates")
+@RequestMapping("/api/v1/candidates")
 public class CandidateController {
 
     private final CandidateService candidateService;
@@ -19,7 +19,7 @@ public class CandidateController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Candidate create(@Valid @RequestBody CandidateCreateDTO dto) {
+    public Candidate createCandidate(@Valid @RequestBody CandidateCreateDTO dto) {
         return candidateService.create(dto);
     }
 }
