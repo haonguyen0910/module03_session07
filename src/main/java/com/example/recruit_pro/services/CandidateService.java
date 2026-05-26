@@ -23,6 +23,7 @@ public class CandidateService {
         candidate.setEmail(dto.getEmail());
         candidate.setAge(dto.getAge());
         candidate.setYearsOfExperience(dto.getYearsOfExperience());
+        candidate.setPhoneNumber(dto.getPhoneNumber());
 
         return candidateRepository.save(candidate);
     }

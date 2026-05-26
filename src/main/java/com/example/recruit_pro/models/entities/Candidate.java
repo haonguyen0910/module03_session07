@@ -16,17 +16,19 @@ public class Candidate {
     private String address;
     @Column(length = 200)
     private String bio;
+    private String phoneNumber;
 
     public Candidate() {
     }
 
-    public Candidate(String fullName, String email, Integer age, Integer yearsOfExperience, String address, String bio) {
+    public Candidate(String fullName, String email, Integer age, Integer yearsOfExperience, String address, String bio, String phoneNumber) {
         this.fullName = fullName;
         this.email = email;
         this.age = age;
         this.yearsOfExperience = yearsOfExperience;
         this.address = address;
         this.bio = bio;
+        this.phoneNumber = phoneNumber;
     }
 
     public Integer getId() {
@@ -83,5 +85,13 @@ public class Candidate {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

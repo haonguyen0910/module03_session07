@@ -1,9 +1,6 @@
 package com.example.recruit_pro.models.dtos;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class CandidateCreateDTO {
 
@@ -20,6 +17,9 @@ public class CandidateCreateDTO {
 
     @Min(value = 0, message = "Kinh nghiệm không được âm")
     private Integer yearsOfExperience;
+
+    @Pattern(regexp = "^(03|05|07|08|09)\\d{8}$", message = "Số điện thoại không hợp lệ !")
+    private String phoneNumber;
 
     public CandidateCreateDTO() {
     }
@@ -54,5 +54,13 @@ public class CandidateCreateDTO {
 
     public void setYearsOfExperience(Integer yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
