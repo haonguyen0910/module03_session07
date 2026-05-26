@@ -1,6 +1,7 @@
 package com.example.recruit_pro.services;
 
 import com.example.recruit_pro.models.dtos.CandidateCreateDTO;
+import com.example.recruit_pro.models.dtos.CandidateUpdateDTO;
 import com.example.recruit_pro.models.entities.Candidate;
 import com.example.recruit_pro.repositories.CandidateRepository;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,16 @@ public class CandidateService {
         candidate.setEmail(dto.getEmail());
         candidate.setAge(dto.getAge());
         candidate.setYearsOfExperience(dto.getYearsOfExperience());
+
+        return candidateRepository.save(candidate);
+    }
+
+    public Candidate update(Integer id, CandidateUpdateDTO dto) {
+
+        Candidate candidate = candidateRepository.findById(id).orElseThrow(() -> new RuntimeException("Candidate not found"));
+
+        candidate.setAddress(dto.getAddress());
+        candidate.setBio(dto.getBio());
 
         return candidateRepository.save(candidate);
     }

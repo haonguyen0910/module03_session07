@@ -1,6 +1,7 @@
 package com.example.recruit_pro.controllers;
 
 import com.example.recruit_pro.models.dtos.CandidateCreateDTO;
+import com.example.recruit_pro.models.dtos.CandidateUpdateDTO;
 import com.example.recruit_pro.models.entities.Candidate;
 import com.example.recruit_pro.services.CandidateService;
 import jakarta.validation.Valid;
@@ -21,5 +22,10 @@ public class CandidateController {
     @ResponseStatus(HttpStatus.CREATED)
     public Candidate createCandidate(@Valid @RequestBody CandidateCreateDTO dto) {
         return candidateService.create(dto);
+    }
+
+    @PutMapping("/update/{id}")
+    public Candidate updateCandidate(@PathVariable Integer id,@Valid @ModelAttribute CandidateUpdateDTO dto) {
+        return candidateService.update(id, dto);
     }
 }
